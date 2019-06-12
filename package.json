@@ -1,0 +1,17 @@
+{
+  "name": "far",
+  "version": "1.0.0",
+  "description": "find and replace api",
+  "main": "index.js",
+  "dependencies": {
+    "glob": "^7.1.4"
+  },
+  "devDependencies": {
+    "semistandard": "^13.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pancake",
+  "license": "MIT"
+}
