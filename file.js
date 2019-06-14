@@ -98,10 +98,18 @@ class File {
   nextLine () {
     return this.after('\n', 1);
   }
-  assert (text) {
+  guard (text) {
     const t = this.text.substring(this.From, this.To || this.text.length);
     const i = t.indexOf(text);
     if (i !== -1) {
+      throw new Error('guard text match');
+    }
+    return this;
+  }
+  assert (text) {
+    const t = this.text.substring(this.From, this.To || this.text.length);
+    const i = t.indexOf(text);
+    if (i === -1) {
       throw new Error('uniq text match');
     }
     return this;
@@ -202,7 +210,8 @@ class File {
     console.error(' .printBlock()     print selected block');
     console.error(' .printFileName()  print the current selected file');
     console.error(' .save(path)       save result to a different file');
-    console.error(' .assert(text)     throw if the text exists in selected block');
+    console.error(' .assert(text)     throw if the text does not exist in selected block');
+    console.error(' .guard(text)      throw if the text exists in selected block');
     console.error(' .save()           overwrite file contents');
     return this;
   }
