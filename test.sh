@@ -4,7 +4,7 @@ FAR="node index.js"
 
 T() {
 	printf "Testing $1 ... "
-	echo "$2" | ${FAR} - "$3" | grep -q "$4"
+	echo "$2" | ${FAR} "$3" - | grep -q "$4"
 	if [ $? = 0 ]; then
 		echo "OK"
 	else
